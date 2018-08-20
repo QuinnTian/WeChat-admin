@@ -23,6 +23,7 @@
             height: 7%;
             border-style: dashed;
             border-width: 0.5px;
+            background-color: ;
         }
         #head-tx{
             width: 20%;
@@ -51,7 +52,66 @@
             width: 20%;
 
         }
+        #content{
+            position: absolute;
+            top: 7%;
+            height: 92%;
+            left: 20%;
+            width: 79%;
+            border-style: dashed;
+            border-width: 0.5px;
+        }
+        li { text-indent:0px;list-style-type:none;} /*设置一级菜单的样式*/
+        li ul{display:none;} /*设置菜单的初始样式*/
+        li ul li{font-size:smaller;}
+
+        #content-key-bar{
+            height: 50px;
+            width: auto;
+            margin: 0;
+            text-align: left;
+        }
+        #content-key-bar ul {
+            margin: 0;padding: 0;
+            list-style-type: none;
+            display: inline-block;
+        }
+
+        #content-key-bar ul li {
+            float:left;
+            margin-left: 5px;
+        }
+
+        #content-key-bar a {
+            display:block;
+            width: auto;
+            height: 50px;
+            line-height: 50px;
+            text-decoration: none;
+
+            font-size: 5px;
+        }
+
+        #content-key-bar a:hover {
+            background-color: #E6E6FA;
+        }
+        #content-auto table{
+            width: 1066px;
+            border: black 1px solid;
+
+        }
+        #content-auto tr td{
+            border: black 1px solid;
+        }
     </style>
+    <script>
+        function xianshi(ele)
+        /*核心代码*/
+        {
+            obj=ele.srcElement||ele.target; /*获取当前对象*/
+            obj.parentNode.childNodes[2].style.display=(obj.parentNode.childNodes[2].style.display=="block"?"none":"block");/*改变display属性,若隐藏则显示,若显示则隐藏*/
+        }
+    </script>
 </head>
 <body>
 <!--1365-->
@@ -60,6 +120,52 @@
     <div id="head-tx">头像</div>
     <div id="head-login">登录</div>
 </div>
-<div id="nva-left">11</div>
+<div id="nva-left">
+    <ul>
+        <li><a  onclick="xianshi(event)">首页</a>
+
+        </li>
+        <li><a h onclick="xianshi(event)" >功能</a>
+            <ul> <li>自动回复</li> <li>自定义菜单</li> <li>留言管理</li> </ul>
+        </li>
+        <li><a  onclick="xianshi(event)" >管理</a>
+            <ul> <li>aaaa</li> <li>bbbb</li> <li>cccc</li> </ul>
+        </li>
+    </ul>
+
+</div>
+<div id="content">
+    <div id="content-key">
+        <div id="content-key-head">关键词回复</div>
+        <div id="content-key-bar">
+            <ul>
+                <li><a href="#">关键词回复</a></li>
+                <li><a href="#">收到消息回复</a></li>
+                <li><a href="#">被关注回复</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div id="content-auto">
+        <input type="submit" value="添加回复">
+        <table>
+            <tr>
+                <td>规则名称</td>
+                <td>关键词</td>
+                <td>回复内容</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>规则名称</td>
+                <td>关键词</td>
+                <td>回复内容</td>
+                <td>操作</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
 </body>
 </html>
